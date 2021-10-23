@@ -1,8 +1,9 @@
+<?php include "fetchtitle.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Category Listing</title>
+    <title><?php echo $allCat;?></title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
@@ -10,8 +11,18 @@
 <body>
 
 <div class="container">
-    <h1>Category Listing</h1>
+    <h1><?php echo $allCat;?></h1>
+    <a href="addCat.php">
+    <button class="cta">
+        <span>Create Category</span>
+        <svg width="15px" height="10px" viewBox="0 0 13 10">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+        </svg>
+    </button>
+    </a>
     <div class="title-underline"></div>
+
     <table>
         <thead>
         <tr>

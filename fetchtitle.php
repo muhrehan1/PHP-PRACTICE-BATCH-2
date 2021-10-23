@@ -1,11 +1,7 @@
 <?php
 
-function get_title(){
 
-
-    $data = [
-      'title'=>'Add Cat'
-
-    ];
-    return $data;
-}
+$addCat = "Add Category";
+$editCat = "Edit Cateogry";
+$allCat = "Category Listing";
+?>
