@@ -27,18 +27,22 @@
         <thead>
         <tr>
             <th>Category ID</th>
+            <th>Category Image</th>
             <th>Category name</th>
+            <th>Category Description</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td>The Godfather</td>
+            <td>Cat Image</td>
             <td>01/08/2019</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque cumque delectus doloremque dolores doloribus eaque, fugiat molestiae mollitia nesciunt obcaecati officia possimus, provident ratione, recusandae reprehenderit saepe sit soluta!</td>
             <td class="action">
 
-                <a href=""><i class="fa fa-edit"></i></a>
-                <a href=""><i class="fa fa-trash"></i></a>
+                <a  href="addCat.php" onclick="return confirm('Are you sure you want to edit this data?')"><img class="edit" src="images/edit.png" alt=""></a>
+                <a  href=""  onclick="return confirm('Are you sure you want to delete this ?')"><img class="delete" src="images/delete.png" alt=""></a>
             </td>
 
         </tr>
