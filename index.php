@@ -1,4 +1,5 @@
 <?php include "fetchtitle.php";?>
+<?php include "server.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,25 +28,30 @@
         <thead>
         <tr>
             <th>Category ID</th>
-            <th>Category Image</th>
             <th>Category name</th>
             <th>Category Description</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>The Godfather</td>
-            <td>Cat Image</td>
-            <td>01/08/2019</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque cumque delectus doloremque dolores doloribus eaque, fugiat molestiae mollitia nesciunt obcaecati officia possimus, provident ratione, recusandae reprehenderit saepe sit soluta!</td>
-            <td class="action">
+        <?php
+        $fetchData = "SELECT * FROM  categories";
+        $querywork = mysqli_query($connection,$fetchData);
+        while ($getData = mysqli_fetch_array($querywork)){
 
-                <a  href="addCat.php" onclick="return confirm('Are you sure you want to edit this data?')"><img class="edit" src="images/edit.png" alt=""></a>
-                <a  href=""  onclick="return confirm('Are you sure you want to delete this ?')"><img class="delete" src="images/delete.png" alt=""></a>
+
+        ?>
+        <tr>
+            <td><?php echo  $getData['id'];?></td>
+            <td><?php echo $getData['catname'];?></td>
+            <td><?php echo $getData['cat_desc'];?></td>
+            <td class="action">
+                <a href="category_edit.php?cat_id=<?php echo $row['id']; ?>"onclick="return confirm('Are you sure you want to edit this data?')"><img class="edit" src="images/edit.png" alt=""></a>
+                <a href="category_delete.php?cat_id=<?php echo $getData['id']; ?>" onclick="return confirm('Are you sure you want to delete this ?')"><img class="delete" src="images/delete.png" alt=""></a>
             </td>
 
         </tr>
+        <?php } ?>
         </tbody>
     </table>
 </div>

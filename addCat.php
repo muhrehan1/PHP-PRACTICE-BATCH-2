@@ -1,4 +1,22 @@
 <?php include "fetchtitle.php";?>
+<?php include 'server.php';?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['catname'];
+    $catdesc = $_POST['cat_desc'];
+    if (empty($name)) {
+        echo "Category Name is empty";
+    } else {
+        $query = "INSERT INTO categories(catname ,cat_desc) VALUES ('$name' ,'$catdesc')";
+
+        $result = mysqli_query($connection , $query);
+        if (!$result) {
+            die('Query Failed' . mysqli_error($connection));
+        }
+    }
+    header("location: index.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,18 +41,15 @@
                 </svg>
             </button>
         </a>
+
         <h1 class="addcath1">Create Category</h1>
-        <form action="">
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="catname">
                 <input type="text" name="catname" placeholder="Enter Category" required="required">
             </div>
             <div class="catdesc">
                 <label for="">Category Description</label>
                 <textarea  id="editor1"  name="cat_desc" id="" cols="90" rows="10" placeholder="Please enter Cat Description" required="required"></textarea>
-            </div>
-            <div class="catpic">
-                <label for="">Category Image</label>
-                <input type="file" placeholder="Choose Category Image" required="required">
             </div>
             <button type="submit" class="learn-more">
               <span aria-hidden="true" class="circle">
